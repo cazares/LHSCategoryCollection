@@ -129,7 +129,20 @@
 }
 
 - (NSArray *)lhs_addConstraints:(NSString *)constraint metrics:(NSDictionary *)metrics views:(NSDictionary *)views {
+    return [self lhs_addConstraints:constraint metrics:metrics views:views identifier:nil];
+}
+
+- (NSArray *)lhs_addConstraints:(NSString *)constraint views:(NSDictionary *)views identifier:(NSString *)identifier {
+    return [self lhs_addConstraints:constraint metrics:nil views:views identifier:identifier];
+}
+
+- (NSArray *)lhs_addConstraints:(NSString *)constraint metrics:(NSDictionary *)metrics views:(NSDictionary *)views identifier:(NSString *)identifier {
     NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:constraint options:0 metrics:metrics views:views];
+    if (identifier && identifier.length > 0) {
+        for (NSLayoutConstraint *constraint in constraints) {
+            constraint.identifier = identifier;
+        }
+    }
     [self addConstraints:constraints];
     return constraints;
 }
