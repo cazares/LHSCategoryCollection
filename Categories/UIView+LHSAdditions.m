@@ -176,16 +176,29 @@
 
 #pragma mark - Multi View Helpers
 
-+ (NSArray *)lhs_addConstraints:(NSString *)format metrics:(NSDictionary *)metrics views:(NSArray *)views {
++ (NSArray *)lhs_addConstraints:(NSString *)format metrics:(NSDictionary *)metrics views:(NSArray *)views identifier:(NSString *)identifier {
     NSMutableArray *constraints = [NSMutableArray array];
     for (UIView *view in views) {
         if (view.superview) {
-            NSArray *viewConstraints = [view.superview lhs_addConstraints:format metrics:metrics views:@{@"view": view}];
+            NSArray *viewConstraints = [view.superview lhs_addConstraints:format metrics:metrics views:@{@"view": view} identifier:identifier];
+            if (identifier.length > 0) {
+                for (NSLayoutConstraint *constraint in viewConstraints) {
+                    constraint.identifier = identifier;
+                }
+            }
             [constraints addObjectsFromArray:viewConstraints];
         }
     }
     
     return constraints;
+}
+
++ (NSArray *)lhs_addConstraints:(NSString *)format metrics:(NSDictionary *)metrics views:(NSArray *)views {
+    return [UIView lhs_addConstraints:format metrics:metrics views:views identifier:nil];
+}
+
++ (NSArray *)lhs_addConstraints:(NSString *)format views:(NSArray *)views identifier:(NSString *)identifier {
+    return [UIView lhs_addConstraints:format metrics: nil views:views identifier:identifier];
 }
 
 + (NSArray *)lhs_addConstraints:(NSString *)format views:(NSArray *)views {

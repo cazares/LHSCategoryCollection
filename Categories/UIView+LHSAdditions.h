@@ -38,5 +38,7 @@
 
 + (NSArray *)lhs_addConstraints:(NSString *)format views:(NSArray *)views;
 + (NSArray *)lhs_addConstraints:(NSString *)format metrics:(NSDictionary *)metrics views:(NSArray *)views;
++ (NSArray *)lhs_addConstraints:(NSString *)format views:(NSArray *)views identifier:(NSString *)identifier;
++ (NSArray *)lhs_addConstraints:(NSString *)format metrics:(NSDictionary *)metrics views:(NSArray *)views identifier:(NSString *)identifier;
 
 @end
