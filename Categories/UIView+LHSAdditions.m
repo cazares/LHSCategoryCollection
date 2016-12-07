@@ -180,7 +180,7 @@
     NSMutableArray *constraints = [NSMutableArray array];
     for (UIView *view in views) {
         if (view.superview) {
-            NSArray *viewConstraints = [view.superview lhs_addConstraints:format metrics:metrics views:@{@"view": view} identifier:identifier];
+            NSArray *viewConstraints = [view.superview lhs_addConstraints:format metrics:metrics views:@{@"view": view}];
             if (identifier.length > 0) {
                 for (NSLayoutConstraint *constraint in viewConstraints) {
                     constraint.identifier = identifier;
