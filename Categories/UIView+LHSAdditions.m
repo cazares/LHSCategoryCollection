@@ -129,14 +129,14 @@
 }
 
 - (NSArray *)lhs_addConstraints:(NSString *)constraint metrics:(NSDictionary *)metrics views:(NSDictionary *)views {
-    return [self lhs_addConstraints:constraint metrics:metrics views:views identifier:nil];
+    return [self lhs_addConstraints:constraint metrics:metrics views:views label:nil];
 }
 
-- (NSArray *)lhs_addConstraints:(NSString *)constraint views:(NSDictionary *)views identifier:(NSString *)identifier {
-    return [self lhs_addConstraints:constraint metrics:nil views:views identifier:identifier];
+- (NSArray *)lhs_addConstraints:(NSString *)constraint views:(NSDictionary *)views label:(NSString *)label {
+    return [self lhs_addConstraints:constraint metrics:nil views:views label:identifier];
 }
 
-- (NSArray *)lhs_addConstraints:(NSString *)constraint metrics:(NSDictionary *)metrics views:(NSDictionary *)views identifier:(NSString *)identifier {
+- (NSArray *)lhs_addConstraints:(NSString *)constraint metrics:(NSDictionary *)metrics views:(NSDictionary *)views label:(NSString *)label {
     NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:constraint options:0 metrics:metrics views:views];
     if (identifier && identifier.length > 0) {
         for (NSLayoutConstraint *constraint in constraints) {

@@ -27,8 +27,8 @@
 - (NSArray *)lhs_fillHeightOfSuperview;
 - (NSArray *)lhs_addConstraints:(NSString *)constraint views:(NSDictionary *)views;
 - (NSArray *)lhs_addConstraints:(NSString *)constraint metrics:(NSDictionary *)metrics views:(NSDictionary *)views;
-- (NSArray *)lhs_addConstraints:(NSString *)constraint views:(NSDictionary *)views identifier:(NSString *)identifier;
-- (NSArray *)lhs_addConstraints:(NSString *)constraint metrics:(NSDictionary *)metrics views:(NSDictionary *)views identifier:(NSString *)identifier;
+- (NSArray *)lhs_addConstraints:(NSString *)constraint views:(NSDictionary *)views label:(NSString *)label;
+- (NSArray *)lhs_addConstraints:(NSString *)constraint metrics:(NSDictionary *)metrics views:(NSDictionary *)views label:(NSString *)label;
 - (NSArray *)lhs_centerHorizontallyForView:(UIView *)view;
 - (NSArray *)lhs_centerVerticallyForView:(UIView *)view;
 - (NSArray *)lhs_centerHorizontallyForView:(UIView *)view width:(CGFloat)width;
